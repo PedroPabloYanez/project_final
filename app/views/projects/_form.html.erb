@@ -32,8 +32,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :finish %>
-    <%= form.date_select :finish %>
+    <%= form.label :finish_date%>
+    <%= form.date_select :finish_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :team_id %>
+    <%= form.collection_select(:team_id, Team.all, :id, :name) %>
   </div>
 
   <div class="actions">
