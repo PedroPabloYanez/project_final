@@ -1,14 +1,27 @@
 class TeamsController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   before_action :set_team, only: %i[ show edit update destroy ]
+  
 
   # GET /teams or /teams.json
   def index
     @teams = Team.all
+    
   end
+  
+    
 
   # GET /teams/1 or /teams/1.json
   def show
+
+    
+    @users = User.all
+    if params[:email].present?
+      @users = @users.where("email LIKE ?", "%#{params[:email]}%")
+    end
+    if params[:user_name].present?
+      @users = @users.where("user_name LIKE ?", "%#{params[:user_name]}%")
+    end
   end
 
   # GET /teams/new
@@ -67,4 +80,7 @@ class TeamsController < ApplicationController
     def team_params
       params.require(:team).permit(:name, :color)
     end
+
+    
+      
 end

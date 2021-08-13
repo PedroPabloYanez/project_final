@@ -64,8 +64,16 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # gem devise
 gem 'devise'
 
-#Bootstrap
-gem 'bootstrap'
-
 #JQuery
+
+
+#CSS 
+gem 'bulma-rails'
+gem 'bootstrap'
 gem 'jquery-rails'
+gem 'font_awesome5_rails'
+
+#form
+gem 'simple_form'
+
+gem 'ransack'
