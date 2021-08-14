@@ -4,11 +4,12 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <%= link_to root_path do %>
-                <h1 class="title is-5 has-text-white">Projekt</h1>
-            <% end  %>
-            </a>
+            <li class="py-4 mx-3">
+                <%= link_to root_path, class:"title is-5 has-text-white" do %>
+                    <p class="font-monospace  fw-bolder fs-2"><b>Home</b></p>
+                <% end  %>
+            </li>
+        
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
@@ -108,18 +109,6 @@
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-            <!-- Sidebar Message -->
-            <%# <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div> %>
-
         </ul>
         
         <!-- End of Sidebar -->
@@ -182,8 +171,8 @@
                             <% if current_user %>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <div class="fa fa-user"></div>
-                                <b><%= current_user.email %></b>
+                                <div class="fa fa-user link-primary mx-1"> </div>
+                                <b class="link-primary"><%= current_user.email %></b>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <%= link_to edit_user_registration_path, class: "dropdown-item #{'active fw-bold' if current_page?(edit_user_registration_path)}" do %>
@@ -195,7 +184,12 @@
                                     <b>Sign out</b>
                                 <% end %>
                                 
-                                <%# IF DE ADMIN %>
+                                <% if current_user.admin?%>
+                                    <%= link_to admin_path, class: "dropdown-item" do %>
+                                        <div class="fas fa-sliders-h"></div>
+                                        <b>Admin Role</b>
+                                    <% end %>
+                                <% end %>
                                 
                                 </ul>
                             </li>
