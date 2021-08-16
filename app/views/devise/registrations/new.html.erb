@@ -1,39 +1,49 @@
-<h2>Sign up</h2>
+<div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="card-body">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :user_name %><br />
-    <%= f.text_field :user_name, autocomplete: "Name" %>
-  </div>
+    <div class="form-floating mb-3 mb-md-0">
+      <%= f.label :user_name, "Name" %><br/><br/>
+      <%= f.text_field :user_name, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :user_photo %><br />
-    <%= f.text_field :user_photo, autocomplete: "Photo" %>
-  </div>
+    <div class="form-floating mb-3 mb-md-0">
+      <%= f.label :user_photo, "Link Photo" %><br /><br/>
+      <%= f.text_field :user_photo, autocomplete: "Photo", class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="form-floating mb-3 mb-md-0">
+      <%= f.label :email %><br /><br/>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="form-floating mb-3 mb-md-0">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br /><br/>
+          <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-floating mb-3 mb-md-0">
+          <%= f.label :password_confirmation %><br /><br/>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="d-flex align-items-center justify-content-between mt-4 mb-4">
+      <%= f.submit "Log in", class:"btn btn-primary" %>
+    </div>
+  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<div class="card-footer text-center py-3">
+  <%= render "devise/shared/links" %>
+</div>

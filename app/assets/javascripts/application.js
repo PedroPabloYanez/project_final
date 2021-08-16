@@ -17,4 +17,6 @@
 //= require popper
 //= require bootstrap
 //= require sb-admin-2.min
+//= require datatables-simple-demo
+//= require scripts
 //= require_tree .
