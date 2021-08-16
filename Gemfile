@@ -77,3 +77,8 @@ gem 'font_awesome5_rails'
 gem 'simple_form'
 
 gem 'ransack'
+
+#Facebok
+gem 'omniauth', '~> 2.0', '>= 2.0.4'
+gem 'omniauth-facebook', '~> 8.0'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
