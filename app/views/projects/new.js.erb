@@ -1,0 +1,9 @@
+// Add the dialog title
+$('#modal-projects-title').html("Nuevo projecto");
+ 
+// Render the new form
+$('.modal-body-projects').html('<%= j render "form", project: @project %>');
+ 
+// Show the dynamic dialog
+$('#modalProjects').modal("show");
+

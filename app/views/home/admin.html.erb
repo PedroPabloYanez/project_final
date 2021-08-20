@@ -20,7 +20,7 @@
         <td><%= user.email %></td>
         <td><%= user.role%></td>
         <td><%= link_to 'Change Status', update_status_path(user.id), class:"btn btn-success"%></td>
-        <td><%= link_to 'Destroy', destroy_user_path(user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+        <td><%= link_to '', destroy_user_path(user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm fas fa-trash-alt" %></td>
       </tr>
     <% end %>
   </tbody>

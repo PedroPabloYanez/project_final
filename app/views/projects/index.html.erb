@@ -1,35 +1,39 @@
-<h1>Projects</h1>
+<h1 class="h3 mb-2 text-gray-800">Projects</h1>
+<hr>
+<div>  
+  <%= link_to new_project_path, {remote: true, class: 'button is-small'} do %>
+		<span class="icon is-small has-text-link"><i class="fa fa-plus"></i></span>
+	<% end %>
+</div>
+<br>
+<div class="card shadow mb-4"  >
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" width="100%">
+        <thead>
+          <tr>
+            <th>Name Project</th>
+            <th>Team</th>
+            <th>Description</th>
+           
+            <th>Initial Date</th>
+            <th>Finish Date</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Team</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Initial Date</th>
-      <th>Finish Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.team.name %></td>
-        <td><%= project.name %></td>
-        <td><%= project.description %></td>
-        <td><%= project.status %></td>
-        <td><%= project.initial_date %></td>
-        <td><%= project.finish_date %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody id="newProject">
+          <% @projects.each do |project| %>
+            <%= render 'projects/project', project: project %> 
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 <br>
 
-<%= link_to 'New Project', new_project_path %>
+<%= render 'modal_projects' %>
+
+

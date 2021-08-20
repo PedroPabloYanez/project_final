@@ -1,29 +1,53 @@
-<p id="notice"><%= notice %></p>
+<section class="section" id="newProject">
+	<div class="container">
+		<div class="columns is-centered">
+			<div class="column is-9">
+				<h1 class="title is-2" id="projectName"><%= @project.name %></h1>
+				<h2 class="subtitle is-5 has-text-weight-light" id="projectTeamName"><span class="icon is-small has-text-weight-lighter"><i class="fa fa-users"></i>&nbsp; &nbsp;</span> <%= link_to @project.team.name, team_path(@project.team) %></h2>
+        
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+				<div class="level">
+					<div class="level-left">
+						<p>Created on:
+						<%= time_ago_in_words(@project.created_at) %> by <%= @project.user&.user_name %> / Modified: 
+						<%= time_ago_in_words(@project.updated_at) %></p>
+					</div>
+					<div class="level-right">
+						<div class="buttons ">
+							<%= link_to edit_project_path(@project),remote: true, class:"nav-item mx-2" do %>
+								<i class="fas fa-edit fa-2x icon"></i>
+							<% end %>
+							<%= render 'modal_projects' %>
+							<%= link_to @project, method: :delete, data: { confirm: 'Are you sure'}, class:'nav-item mx-5'  do%> 
+								<i class="fas fa-trash-alt fa-2x icon-trush"></i>
+							<% end %>
+						</div>
+					</div>
+				</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+					<hr/>
+				
+					<div class="content" id="proyectDescription" >
+						<strong>Descripción Project:</strong>
+						<%=@project.description%>
+					</div>
 
-<p>
-  <strong>Status:</strong>
-  <%= @project.status %>
-</p>
+					
 
-<p>
-  <strong>Initial date:</strong>
-  <%= @project.initial_date %>
-</p>
+					<div id="proyectInitial_date">
+						<strong>Initial date:</strong>
+						<%= @project.initial_date %>
+					</div>
 
-<p>
-  <strong>Finish:</strong>
-  <%= @project.finish_date %>
-</p>
+					<div id="proyectFinish_date">
+						<strong>Finish:</strong>
+						<%= @project.finish_date %>
+					</div>
+				
+			</div>
+		</div>
+	</div>
+</section>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', root_path %>

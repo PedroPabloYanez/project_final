@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :status %>
-    <%= form.number_field :status %>
+    <%= form.select :status, Task::STATUS_OPTIONS, {} %>
   </div>
 
   <div class="field">

@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+    def index
+
+    end
+   
     def destroy
         User.find(params[:id]).destroy
         flash[:success] = "User destroyed."

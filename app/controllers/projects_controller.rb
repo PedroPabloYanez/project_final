@@ -1,10 +1,12 @@
 class ProjectsController < ApplicationController
-  #before_action :authenticate_user!
   before_action :set_project, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  
 
   # GET /projects or /projects.json
   def index
     @projects = Project.all
+    @project = Project.new
   end
 
   # GET /projects/1 or /projects/1.json
@@ -13,24 +15,31 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
+    @project = current_user.projects.build
+    #@teams = Team.where('id = ?', current_user.team_id)
     @project = Project.new
   end
 
   # GET /projects/1/edit
   def edit
+    #@teams = current_user.teams
   end
 
   # POST /projects or /projects.json
   def create
     @project = Project.new(project_params)
+    @project = current_user.projects.build(project_params)
+    #@project = Project.new(project_params)
 
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: "Project was successfully created." }
-        format.json { render :show, status: :created, location: @project }
+        format.json { head :no_content }
+        format.js {render :create}
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @project.errors, status: :unprocessable_entity }
+        
       end
     end
   end
@@ -41,9 +50,11 @@ class ProjectsController < ApplicationController
       if @project.update(project_params)
         format.html { redirect_to @project, notice: "Project was successfully updated." }
         format.json { render :show, status: :ok, location: @project }
+        format.js {render :update}
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @project.errors, status: :unprocessable_entity }
+       
       end
     end
   end
@@ -52,8 +63,9 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: "Project was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Project was successfully destroyed." }
       format.json { head :no_content }
+      format.js
     end
   end
 
@@ -65,6 +77,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name, :description, :status, :initial_date, :finish_date, :team_id)
+      params.require(:project).permit(:name, :description, :status, :initial_date, :finish_date, :team_id, :user_id)
     end
 end

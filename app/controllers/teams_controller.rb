@@ -19,7 +19,21 @@ class TeamsController < ApplicationController
   end
 
   def add_member
-    @team = Team.find(params[:team_id])
+    @team = Team.find(params[:id])
+    @user = User.find(params[:user_id])
+    if @team.users.include?(@user)
+      redirect_to team_path, notice: "El usuario ya existe en el equipo"
+    else
+      @team.users << @user
+      redirect_to team_path, notice: "El usuario ha sido añadido"
+    end
+  end
+
+  def delete_member
+    team = Team.find(params[:id])
+    user = User.find(params[:member_id]) 
+    team.users.destroy(user)
+    redirect_to team_path, notice: "El usuario ha sido Eliminado"
   end
 
   # GET /teams/new
@@ -37,11 +51,11 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to @team, notice: "Team was successfully created." }
-        format.json { render :show, status: :created, location: @team }
+        format.html { redirect_to root_path, notice: "Team was successfully created." }
+        format.json { render :show, status: :created, location: root_path }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @team.errors, status: :unprocessable_entity }
+        format.json { render json: root_path.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -50,11 +64,11 @@ class TeamsController < ApplicationController
   def update
     respond_to do |format|
       if @team.update(team_params)
-        format.html { redirect_to @team, notice: "Team was successfully updated." }
-        format.json { render :show, status: :ok, location: @team }
+        format.html { redirect_to root_path, notice: "Team was successfully updated." }
+        format.json { render :show, status: :ok, location: root_path }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @team.errors, status: :unprocessable_entity }
+        format.json { render json: root_path.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -63,7 +77,7 @@ class TeamsController < ApplicationController
   def destroy
     @team.destroy
     respond_to do |format|
-      format.html { redirect_to teams_url, notice: "Team was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Team was successfully destroyed." }
       format.json { head :no_content }
     end
   end

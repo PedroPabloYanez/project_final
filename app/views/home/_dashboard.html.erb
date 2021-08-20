@@ -1,32 +1,40 @@
 <section class="section pt3">
-	<p class="title is-5 border-bottom pb3 has-text-centered">Welcome <%= current_user.user_name %> 👋🏻</p>
+	<p class="title border-bottom pb-5 has-text-centered letter">Welcome <%= current_user.user_name %> 👋🏻</p>
 	<div class="columns">
 
-		<div class="column border-right ph4">
+		<div class="column border-right ph4" >
 			<div class="level">
 				<div class="level-left">
 					<h3 class="subtitle is-5">My Projects <span class="tag is-rounded"><%= @projects.count %></span></h3>
 				</div>
 				<div class="level-right">
-					<p class="field">
-						<%= link_to new_project_path, class: 'button is-small' do %>
+					<p class="field" >
+						<%= link_to new_project_path, remote: true, class: 'button is-small' do %>
 							<span class="icon is-small has-text-link"><i class="fa fa-plus"></i></span>
 						<% end %>
+						<%= render 'projects/modal_projects' %>
 					</p>
 				</div>
 			</div>
 			<hr />
 
 			<% @projects.each do |project| %>
+
 				<div class="content border-bottom pb4">
-					<p class="title is-4">
+					<p class="title is-4 d-flex justify-content-between" id="NameProject">
 						<%= link_to project.name, project %>
+						<%= link_to project, method: :delete, data: { confirm: "Are you sure you want to remove: #{project.name}?"}, class:'nav-item mx-5'  do%> 
+							<i class="fas fa-trash-alt  icon-trush"></i>
+						<% end %>
+						
 					</p>
 					<p class="subtitle is-6"></p>
 						<%= link_to project.team.name, project.team %>
 					</p>
-					<p class="f6">Created by: <%= current_user.user_name%></p>
+					<p class="f6"><b>Description:</b> <%= project.description %></p>
+					<p class="f6 d-flex justify-content-end">Created by: <%= project.user&.user_name %></p>
 				</div>
+				
 			<% end %>
 		
 		</div>
@@ -46,24 +54,19 @@
 			<hr />
 			<% @teams.each do |team| %>
 				<div class="content border-bottom pb4">
-					<p class="title is-4">
+					<p class="title is-4 d-flex justify-content-between">
 						<%= link_to team.name, team %>
+						<%= link_to team, method: :delete, data: { confirm: "Are you sure you want to remove: #{team.name}?" }, class:"nav-item mx-5" do %>	
+							<i class="fas fa-trash-alt  icon-trush"></i>
+						<% end %>
 					</p>
-					<p class="subtitle is-6"><%#= team.users.count %>3 Members</p>
-					<span class="f6"><%#= safe_join(team.users.map { |user| user.name }, ', ') %></span>
+					<p class="subtitle is-6"><%= team.users.count %> Members</p>
+					<span class="f6"><%= safe_join(team.users.map { |user| user.user_name }, ', ') %></span>
+					
 				</div>
 			<% end %>
 
 		</div>
-
-		<div class="column ph4">
-			<h3 class="subtitle is-5">Task</h3>
-			<hr />
-			<ul class="list">
-				<%#= render_activities(@activities) %>
-			</ul>
-		</div>
-	
 	</div>
 </section>
 

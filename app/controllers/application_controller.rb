@@ -13,6 +13,12 @@ class ApplicationController < ActionController::Base
     #     end
     # end
 
+    def current_team 
+        if current_team 
+            team = Team.find_or_create_by(user_id: current_user.id, state: "created")
+        end
+    end
+
     protected
 
     def configure_permitted_parameters
