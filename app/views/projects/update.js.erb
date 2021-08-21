@@ -1,6 +1,12 @@
 $('#modalProjects').modal('toggle');
-document.querySelector('#project_<%= @project.id %>').innerHTML = "<%= j render @project%>"
-console.log('<%= @project.name %>')
+document.getElementById('project_<%= @project.id %>').innerHTML = "<%= j render @project%>"
+$('#modalProjectsShow').modal('toggle');
+document.getElementById('projectName').innerHTML = "<%= j render @project %>"
+
+
+
+
+
 $('#projectName').html('<h1 class="title is-2"><%= @project.name %></h1>');
 $('#projectTeamName').html('<h2 class="subtitle is-5 has-text-weight-light"><span class="icon is-small has-text-weight-lighter"><i class="fa fa-users"></i>&nbsp; &nbsp;</span> <%= link_to @project.team.name, team_path(@project.team) %></h2>');
 $('#proyectDescription').html('<strong>Descripción Project: </strong><%= @project.description %>');

@@ -36,7 +36,11 @@
     <% @users.each do |u| %>
       <tr>
         <td><%= u.id %></td>
-        <td><img src="<%= u.user_photo %>" width="60" height="60" class="rounded mx-auto d-block"></td>
+        <% if u.image? %>
+          <td><img src="<%= u.image %>" width="60" height="60" class="rounded mx-auto d-block"></td>
+        <% else %>
+          <td><img src="<%= u.user_photo %>" width="60" height="60" class="rounded mx-auto d-block"></td>
+        <% end %>
         <td><%= u.user_name %></td>
         <td><%= u.email %></td>
         <td class="d-flex justify-content-center "><%= link_to add_member_team_path(@team.id, u.id) do%>
