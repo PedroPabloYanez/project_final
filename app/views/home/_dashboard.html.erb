@@ -21,20 +21,33 @@
 			<% @projects.each do |project| %>
 
 				<div class="content border-bottom pb4">
-					<p class="title is-4 d-flex justify-content-between" id="NameProject">
-						<%= link_to project.name, project %>
-						<%= link_to project, method: :delete, data: { confirm: "Are you sure you want to remove: #{project.name}?"}, class:'nav-item mx-5'  do%> 
-							<i class="fas fa-trash-alt  icon-trush"></i>
-						<% end %>
-						
-					</p>
+					<div class="container" id="NameProject">
+						<div class="row">
+							<div class="col-4 title is-4 text-start">
+								<%= link_to project.name, project %>
+							<small>	<span class="badge badge-<%= project.badge_color %> mb-3"><%= project.status %></span></small>
+							</div>
+							
+							<div class="col-4">
+								<small><%= project.percent_complete %>% complete
+								(<%= project.total_complete %>/<%= project.total_tasks %> tasks)</small>
+							</div>
+							<div class="col-4 text-end">
+								<%= link_to project, method: :delete, data: { confirm: "Are you sure you want to remove: #{project.name}?"}, class:'nav-item mx-5'  do%> 
+								<i class="fas fa-trash-alt  icon-trush fa-1x"></i>
+								<% end %>
+							</div>
+							
+						</div>
+					
+					
 					<p class="subtitle is-6"></p>
 						<%= link_to project.team.name, project.team %>
 					</p>
 					<p class="f6"><b>Description:</b> <%= project.description %></p>
 					<p class="f6 d-flex justify-content-end">Created by: <%= project.user&.user_name %></p>
 				</div>
-				
+				</div>
 			<% end %>
 		
 		</div>

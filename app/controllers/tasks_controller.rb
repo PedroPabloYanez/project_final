@@ -63,6 +63,8 @@ class TasksController < ApplicationController
       @task = Task.find(params[:id])
     end
 
+    
+
     # Only allow a list of trusted parameters through.
     def task_params
       params.require(:task).permit(:name, :description, :status, :due_date, :priority, :project_id)

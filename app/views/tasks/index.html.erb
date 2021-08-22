@@ -1,39 +1,49 @@
-<div class="card">
-  <div class="card-body">
-    <h2 class='card-title d-flex justify-content-between mb-4'>
-<h1>Tasks</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Project Name</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Due date</th>
-      <th>Priority</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.project.name %></td>
-        <td><%= task.name %></td>
-        <td><%= task.description %></td>
-        <td><%= task.status %></td>
-        <td><%= task.due_date %></td>
-        <td><%= task.priority %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
- </div>
+<h1 class="h3 mb-2 text-gray-800">Tasks</h1>
+<div>  
+  <%= link_to new_task_path, { class: 'button is-small'} do %>
+		<span class="icon is-small has-text-link"><i class="fa fa-plus"></i></span>
+	<% end %>
 </div>
-<br>
 
-<%= link_to 'New Task', new_task_path %>
+<% @tasks.each do |task| %>
+  <div class="card">
+    <div class="container">
+      <div class="row">      
+        <div class="col">
+          <h5 class="card-title"><b>Project Name</b></h5>
+          <%= task.project.name %>
+        </div>
+        <div class="col">
+          <h5 class="card-title"><b>Task Name</b></h5>
+          <%= task.name %>
+        </div>
+        <div class="col">
+          <h5 class="card-title"><b>Description</b></h5>
+          <%= task.description %>
+        </div>
+        
+        <div class="col">
+          <h5 class="card-title"><b>Due Date</b></h5>
+          <%= task.due_date %>
+        </div>
+        <div class="col">
+          <h5 class="card-title"><b>Priority</b></h5>
+          <%= task.priority %>
+        </div>
+        <div class="col">
+          <h5 class="card-title"><b>Status</b></h5>
+          <span class="badge badge-<%= task.badge_color %> mb-3"><%= task.status %></span>
+        </div>
+        <div class="col">
+          <%= link_to 'Show', task %>
+          <%= link_to 'Edit', edit_task_path(task) %>
+          <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div >
+      </div>
+  </div>
+<% end %>
+ 
+
+
+
