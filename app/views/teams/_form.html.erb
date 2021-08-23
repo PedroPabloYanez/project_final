@@ -1,4 +1,7 @@
-<%= form_with(model: team, local: true) do |form| %>
+<%= form_with(model: team, remote: true) do |form| %>
+  <div class="form-group">
+    <h4 class="control-label">Datos del Equipo:</h4>
+  </div>
   <% if team.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
@@ -11,18 +14,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="item form-group">
+    <%= form.label :name, "Nombre de la tarea: " %>
+    <div class="input-group">
+      <%= form.text_field :name , {:class=> "form-control", :placeholder=>"Introduzca el nombre del Team..."}%>
+    </div>
   </div>
 
-  <div class="field">
+  <div class="item form-group">
     <%= form.label :color %>
-    <%= form.text_field :color %>
+    <div class="input-group">
+      <%= form.text_field :color, {:class=> "form-control", :placeholder=>"Introduzca color de Team..."} %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => "btn btn-success"%>
   </div>
 
   

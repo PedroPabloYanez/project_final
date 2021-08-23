@@ -1,0 +1,15 @@
+<tr id="task_<%= task.id%>">
+
+    <td><%= task.project.name %></td>
+    <td><%= task.name %></td>
+    <td><%= task.description %></td>
+    <td><%= task.due_date %></td>
+    <td><%= task.priority %></td>
+    <td><span class="badge badge-<%= task.badge_color %> mb-3"><%= task.status %></span></td>
+    <td class="text-center"><%= link_to  edit_task_path(task), remote: true, class:"nav-item mx-2" do %>
+            <i class="fas fa-edit icon"></i>
+		<% end %></td>
+    <td class="text-center"><%= link_to task, remote: true, method: :delete,  data: { confirm: "Delete #{task.name}?"}, class:'nav-item mx-5'  do %>
+            <i class="fas fa-trash-alt icon-trush"></i>
+		<% end %></td>
+</tr> 

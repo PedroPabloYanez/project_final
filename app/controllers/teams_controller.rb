@@ -53,6 +53,7 @@ class TeamsController < ApplicationController
       if @team.save
         format.html { redirect_to root_path, notice: "Team was successfully created." }
         format.json { render :show, status: :created, location: root_path }
+        format.js {render :create}
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: root_path.errors, status: :unprocessable_entity }
@@ -66,6 +67,7 @@ class TeamsController < ApplicationController
       if @team.update(team_params)
         format.html { redirect_to root_path, notice: "Team was successfully updated." }
         format.json { render :show, status: :ok, location: root_path }
+        format.js {render :update}
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: root_path.errors, status: :unprocessable_entity }
@@ -79,6 +81,7 @@ class TeamsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to root_path, notice: "Team was successfully destroyed." }
       format.json { head :no_content }
+      format.js 
     end
   end
 

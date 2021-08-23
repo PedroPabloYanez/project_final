@@ -1,27 +1,30 @@
-<h1>Teams</h1>
+<h1 class="h3 mb-2 text-gray-800">Teams</h1>
+<hr>
+<div>  
+  <%= link_to new_team_path, {remote: true, class: 'button is-small'} do %>
+		<span class="icon is-small has-text-link"><i class="fa fa-plus"></i></span>
+	<% end %>
+</div>
+<br />
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Name</th>
       <th>Color</th>
-      <th colspan="3"></th>
+      <th>Numero de integrantes</th>
+      <th>integrantes</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @teams.each do |team| %>
-      <tr>
-        <td><%= team.name %></td>
-        <td><%= team.color %></td>
-        <td><%= link_to 'Show', team %></td>
-        <td><%= link_to 'Edit', edit_team_path(team) %></td>
-        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= render 'teams/team', team: team %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Team', root_path %>
+<%= render 'modal_teams' %>

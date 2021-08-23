@@ -1,0 +1,6 @@
+$('#modalTasks').modal('toggle');
+document.getElementById('task_<%= @task.id %>').innerHTML = "<%= j render @task%>"
+$('#modalTasksShow').modal('toggle');
+
+
+

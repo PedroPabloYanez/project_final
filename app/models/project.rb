@@ -40,4 +40,10 @@ class Project < ApplicationRecord
     tasks.count
   end
 
+  def total_day
+    fecha1 = Date.today
+    fecha2 = Date.parse(Project.finish_date)
+    (fecha2-fecha1).to_i
+  end
+
 end

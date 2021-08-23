@@ -1,0 +1,8 @@
+// Add the dialog title
+$('#modal-teams-title').html("Nuevo Team");
+ 
+// Render the new form
+$('.modal-body-teams').html('<%= j render "form", team: @team %>');
+ 
+// Show the dynamic dialog
+$('#modalTeams').modal("show");

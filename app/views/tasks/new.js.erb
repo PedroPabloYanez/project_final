@@ -1,0 +1,8 @@
+// Add the dialog title
+$('#modal-tasks-title').html("Nueva Tarea");
+ 
+// Render the new form
+$('.modal-body-tasks').html('<%= j render "form", task: @task %>');
+ 
+// Show the dynamic dialog
+$('#modalTasks').modal("show");

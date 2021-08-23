@@ -2,9 +2,12 @@
     <td><%= project.name %></td>
     <td><%= project.team.name %></td>
     <td><%= project.description %></td>
-   
     <td><%= project.initial_date %></td>
-    <td><%= project.finish_date %></td>     
-    <td><%= link_to 'Edit', edit_project_path(project) , remote: true%></td>
-    <td><%= link_to 'Destroy', project, remote: true, method: :delete, data: { confirm: "Delete: #{project.name}?" } %></td>
+    <td><%= project.finish_date %></td>    
+    <td class="text-center"><%= link_to edit_project_path(project),remote: true, class:"nav-item mx-2" do %>
+			<i class="fas fa-edit icon"></i>
+		<% end %></td>
+    <td class="text-center"><%= link_to project, method: :delete, data: { confirm: "Delete #{project.name}?"}, class:'nav-item mx-5'  do%> 
+			<i class="fas fa-trash-alt icon-trush"></i>
+		<% end %></td>
 </tr>
