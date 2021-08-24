@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
     validates :name, presence: true
-    
+    acts_as_votable
     has_many :tasks
     belongs_to :team
     belongs_to :user
@@ -40,10 +40,8 @@ class Project < ApplicationRecord
     tasks.count
   end
 
-  def total_day
-    fecha1 = Date.today
-    fecha2 = Date.parse(Project.finish_date)
-    (fecha2-fecha1).to_i
+  def day
+     Date.today.to_s
   end
 
 end

@@ -82,3 +82,9 @@ gem 'ransack'
 gem 'omniauth', '~> 2.0', '>= 2.0.4'
 gem 'omniauth-facebook', '~> 8.0'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
+
+#Chartkick
+gem "chartkick"
+
+#Votable
+gem 'acts_as_votable'

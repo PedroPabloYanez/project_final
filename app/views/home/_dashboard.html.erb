@@ -43,7 +43,7 @@
 					<br>
 					<%= I18n.l(Date.today, format: '%A, %d de %B de %Y') %><br>
 					<%= (project.finish_date) %><br>
-					<%=  (Date.today) %><br>
+					<%#=  (project.day)-(project.finish_date).to_s %><br>
 					<%#= ((Date.today.to_s)-(project.finish_date.to_s)).to_i%><br>
 					Quedan :<%#= project.total_day %> días
 					<p class="subtitle is-6"></p>
@@ -52,7 +52,15 @@
 					<p class="f6"><b>Description:</b> <%= project.description %></p>
 					<p class="f6 d-flex justify-content-end">Created by: <%= project.user&.user_name %></p>
 				</div>
+				<% if current_user %>
+    				<%= content_tag "div", id: "like-link-#{project.id}" do %>
+     					<%= render 'projects/like_link', project: project %>
+    				<% end %>
+  				<% end %>
 				</div>
+
+				
+
 			<% end %>
 		
 		</div>
@@ -63,9 +71,11 @@
 				</div>
 				<div class="level-right">
 					<p class="field">
+					
 						<%= link_to new_team_path, class: 'button is-small' do %>
 							<span class="icon is-small has-text-link"><i class="fa fa-plus"></i></span>
 						<% end %>
+					
 					</p>
 				</div>
 			</div>

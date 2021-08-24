@@ -21,7 +21,11 @@ Rails.application.routes.draw do
   end
 
 
-  resources :projects
+  resources :projects do
+    member do
+      patch "like", to: "projects#like"
+    end
+  end
   
   #resource :cart, only: [:show, :update] #do
     #get 'carts/:id/delete_item', to: 'carts#delete_item', as: 'delete_item'

@@ -32,7 +32,8 @@
         <div class="item form-group">
           <%= form.label :status %>
           <div class="input-group">
-            <%= form.select(:status, Task.statuses.keys.to_a, {:prompt => '-select-'}, {class: "form-control"}) %>
+            
+            <%= form.select(:status, Task.statuses.keys.to_a, {:prompt => 'Selecciona un tamaño'}, {class: "form-control"})  %>
           </div>
         </div>
 

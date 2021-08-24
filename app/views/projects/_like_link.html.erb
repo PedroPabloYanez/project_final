@@ -1,0 +1,15 @@
+<%= link_to like_project_path(project), method: :patch, remote: true, id: "like-link-#{project.id}" do %>
+    <% if current_user.voted_up_on?(project) %>
+        <i class="fas fa-thumbs-up"></i>
+        <b>
+            <%= project.cached_votes_up %>
+        </b> 
+    
+    <% else current_user.voted_down_on?(project) %>
+        <i class="fas fa-thumbs-down"></i>
+        <b> 
+            <%= project.cached_votes_up %>
+        </b> 
+    
+    <% end %>
+<% end %>

@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :team_users
   has_many :teams, through: :team_users
   has_many :projects
+  acts_as_voter
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

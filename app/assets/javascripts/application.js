@@ -19,4 +19,6 @@
 //= require sb-admin-2.min
 //= require datatables-simple-demo
 //= require scripts
+//= require chartkick
+//= require Chart.bundle
 //= require_tree .

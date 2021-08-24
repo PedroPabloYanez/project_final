@@ -11,7 +11,20 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
-    
+  end
+
+  def like
+    @project = Project.find(params[:id])
+    if current_user.voted_up_on? @project
+      @project.downvote_by current_user
+    elsif current_user.voted_down_on? @project
+      @project.upvote_by current_user
+    else #not voted
+      @project.upvote_by current_user
+    end
+    respond_to do |format|
+     format.js
+    end 
   end
 
   # GET /projects/new
