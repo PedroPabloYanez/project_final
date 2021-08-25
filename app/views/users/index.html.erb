@@ -2,6 +2,31 @@
 
 <h2>Charts</h2>
 
-<%= pie_chart Project.group(:name).count %>
 
 
+<div class="card">
+  <div class="card-body">
+    <div class="container">
+        <div class="row">
+
+            <div class="col">
+                <%= column_chart Team.includes(:users).collect{|team| [team.name, team.users.size]}, prefix: "Cantidad User: "%>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card">
+  <div class="card-body">
+    <div class="container">
+        <div class="row">
+         
+            <div class="col">
+                <%= pie_chart Task.joins(:project).group('projects.name').count, prefix: "Cantidad Tareas: " %>
+            </div>
+        </div>
+    </div>
+</div>
