@@ -30,3 +30,30 @@
 .remove-user { color:red; }
 
 .fa-thumbs-down { color: red; }
+
+.panel-green { border-color: #5cb85c;}
+.panel-green { border-color: #f0ad4e;}
+
+
+.panel-heading { 
+    border-color: #5cb85c;
+    color: #fff;
+    background-color: #5cb85c;
+}
+.panel-heading-yellow { 
+    border-color: #f0ad4e;
+    color: #fff;
+    background-color: #f0ad4e;
+}
+
+
+.panel{ 
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+.panel-2{ 
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}

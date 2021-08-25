@@ -42,10 +42,11 @@
 					Hoy es:
 					<br>
 					<%= I18n.l(Date.today, format: '%A, %d de %B de %Y') %><br>
-					<%= (project.finish_date) %><br>
+					<%#= (project.finish_date) %><br>
 					<%#=  (project.day)-(project.finish_date).to_s %><br>
 					<%#= ((Date.today.to_s)-(project.finish_date.to_s)).to_i%><br>
 					Quedan :<%#= project.total_day %> días
+					<%#= TimeDifference.between(project.initial_date, project.finish_date).humanize %>
 					<p class="subtitle is-6"></p>
 						<%= link_to project.team.name, project.team %>
 					</p>

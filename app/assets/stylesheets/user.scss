@@ -1,3 +1,28 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.panel-green { border-color: #5cb85c;}
+
+.panel{ 
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+.panel-heading { 
+    border-color: #5cb85c;
+    color: #fff;
+    background-color: #5cb85c;
+}
+.panel-heading-yellow { 
+    border-color: #f0ad4e;
+    color: #fff;
+    background-color: #f0ad4e;
+}
+
+.panel{ 
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
