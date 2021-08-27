@@ -32,28 +32,43 @@
 .fa-thumbs-down { color: red; }
 
 .panel-green { border-color: #5cb85c;}
-.panel-green { border-color: #f0ad4e;}
-
-
-.panel-heading { 
-    border-color: #5cb85c;
-    color: #fff;
-    background-color: #5cb85c;
-}
-.panel-heading-yellow { 
-    border-color: #f0ad4e;
-    color: #fff;
-    background-color: #f0ad4e;
-}
-
+.panel-yellow { border-color: #f0ad4e;}
+.panel-red { border-color: #e74c3c;}
 
 .panel{ 
     margin-bottom: 20px;
     background-color: #f0f0f0;
     border-radius: 4px;
 }
-.panel-2{ 
-    margin-bottom: 20px;
-    background-color: #f0f0f0;
-    border-radius: 4px;
+
+.panel-heading { 
+    border-color: #5cb85c;
+    color: #fff;
+    background-color: #5cb85c;
 }
+.yellow { 
+    border-color: #f0ad4e;
+    color: #fff;
+    background-color: #f0ad4e;
+    font-size:  1.25em;
+    border-radius: 6px 6px 0 0;
+    font-weight: 700;
+    line-height: 1.25;
+    padding: 0.75em 1em;
+}
+
+.red { 
+    border-color: #e74c3c;
+    color: #fff;
+    background-color: #e74c3c;
+    font-size:  1.25em;
+    border-radius: 6px 6px 0 0;
+    font-weight: 700;
+    line-height: 1.25;
+    padding: 0.75em 1em; 
+}
+
+.start-up{ color:#f4d03f; }
+
+.icon-back { color:  #5d6d7e; }
+

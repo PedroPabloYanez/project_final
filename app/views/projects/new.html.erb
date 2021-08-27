@@ -1,5 +1,16 @@
-<h1>New Project</h1>
+<%= link_to root_path do %>
+    <i class="fas fa-arrow-circle-left fa-2x icon-back"></i>
+<% end %>
 
-<%= render 'form', project: @project %>
+<div class="card border-dark mb-3 mt-2">
+  <div class="card-header"><h1>New Project</h1></div>
+  <div class="card-body text-dark">
+    <%= render 'form', project: @project %>
+  </div>
+</div>
 
-<%= link_to 'Back', root_path %>
+
+
+
+
+

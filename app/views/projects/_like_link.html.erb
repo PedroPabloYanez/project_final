@@ -1,12 +1,12 @@
-<%= link_to like_project_path(project), method: :patch, remote: true, id: "like-link-#{project.id}" do %>
+<%= link_to like_project_path(project), method: :patch, remote: true, id: "like-link-#{project.id}", class:"text-decoration-none" do %>
     <% if current_user.voted_up_on?(project) %>
-        <i class="fas fa-thumbs-up"></i>
+        <i class="fas fa-star start-up"></i>
         <b>
             <%= project.cached_votes_up %>
         </b> 
     
     <% else current_user.voted_down_on?(project) %>
-        <i class="fas fa-thumbs-down"></i>
+        <i class="far fa-star "></i>
         <b> 
             <%= project.cached_votes_up %>
         </b> 

@@ -9,10 +9,10 @@
 				</div>
 				<div class="level-right">
 					<p class="field" >
-						<%= link_to new_project_path, remote: true, class: 'button is-small' do %>
+						<%= link_to new_project_path, class: 'button is-small' do %>
 							<span class="icon is-small has-text-link"><i class="fa fa-plus"></i></span>
 						<% end %>
-						<%= render 'projects/modal_projects' %>
+						
 					</p>
 				</div>
 			</div>
@@ -39,13 +39,15 @@
 							</div>
 							
 						</div>
-					Hoy es:
+					
 					<br>
-					<%= I18n.l(Date.today, format: '%A, %d de %B de %Y') %><br>
-					<%#= (project.finish_date) %><br>
+					<%#= I18n.l(Date.today, format: '%A, %d de %B de %Y') %><br>
+					 <%= (project.finish_date.to_s).to_i - 4 %>
+
+					
 					<%#=  (project.day)-(project.finish_date).to_s %><br>
 					<%#= ((Date.today.to_s)-(project.finish_date.to_s)).to_i%><br>
-					Quedan :<%#= project.total_day %> días
+					Quedan :<%#= ((project.finish_date.to_s)-(Date.today.to_s)).to_i %> días
 					<%#= TimeDifference.between(project.initial_date, project.finish_date).humanize %>
 					<p class="subtitle is-6"></p>
 						<%= link_to project.team.name, project.team %>

@@ -40,8 +40,12 @@ class Project < ApplicationRecord
     tasks.count
   end
 
-  def day
-     Date.today.to_s
+  def total_day
+     primero = @project.initial_date
+     segundo = @project.finish_date
+     resultado = (segundo - primero).to_i
+
+     return resultado
   end
 
 end
