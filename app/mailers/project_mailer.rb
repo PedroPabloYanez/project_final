@@ -9,7 +9,6 @@ class ProjectMailer < ApplicationMailer
     @greeting = "Hi, hor are you?"
 
     mail(to: "pedropablo.yanez@hotmail.com",
-        subject: "This is a test"
-        )#@user.email // usuario puntual
+        subject: "This is a test")#@user.email // usuario puntual
   end
 end
