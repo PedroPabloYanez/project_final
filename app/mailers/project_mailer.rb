@@ -6,9 +6,8 @@ class ProjectMailer < ApplicationMailer
   #   en.project_mailer.project_create.subject
   #
   def project_create
-    @greeting = "Hi, hor are you?"
+    @greeting = "Hi, how are you?"
 
-    mail(to: "pedropablo.yanez@hotmail.com",
-        subject: "This is a test")#@user.email // usuario puntual
+    mail(to: @user.email, subject: "This is a test")#@user.email // usuario puntual
   end
 end
