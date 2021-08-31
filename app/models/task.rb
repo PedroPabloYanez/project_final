@@ -1,15 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :project
-
-    
-  #validates :status, inclusion: { in: ['not-started', 'in-progress', 'complete']}
-    
-  # STATUS_OPTIONS = [
-  #   ['Not started', 'not-started'],
-  #   ['In progress', 'in-progress'],
-  #   ['Complete', 'complete']
-  # ]
-
+  
   enum status: [:not_started, :in_progress, :complete]
 
   def badge_color
@@ -33,6 +24,14 @@ class Task < ApplicationRecord
     
   def not_started?
     status == 'not-started'
+  end
+
+  def count_down_day_task
+    primero = Date.today
+    segundo = self.due_date
+    resultado = (segundo - primero).to_i
+    
+    resultado
   end
     
 end

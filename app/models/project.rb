@@ -1,31 +1,31 @@
 class Project < ApplicationRecord
-    validates :name, presence: true
-    acts_as_votable
-    has_many :tasks
-    belongs_to :team
-    belongs_to :user
+  validates :name, presence: true
+  acts_as_votable
+  has_many :tasks
+  belongs_to :team
+  belongs_to :user
 
-    def badge_color
-      case status
-      when 'not-started'
-        'secondary'
-      when 'in-progress'
-        'info'
-      when 'complete'
-        'success'
-      end
+  def badge_color
+    case status
+    when 'not-started'
+      'secondary'
+    when 'in-progress'
+      'info'
+    when 'complete'
+      'success'
     end
+  end
 
-    def status
-      return 'not-started' if tasks.none?
-      if tasks.all? { |task| task.complete? }
-        'complete'
-      elsif tasks.any? { |task| task.in_progress? || task.complete? }
-        'in-progress'
-      else
-        'not-started'
-      end
+  def status
+    return 'not-started' if tasks.none?
+    if tasks.all? { |task| task.complete? }
+      'complete'
+    elsif tasks.any? { |task| task.in_progress? || task.complete? }
+      'in-progress'
+    else
+      'not-started'
     end
+  end
 
   def percent_complete
     return 0 if tasks.none?
@@ -41,11 +41,17 @@ class Project < ApplicationRecord
   end
 
   def total_day
-     primero = @project.initial_date
-     segundo = @project.finish_date
-     resultado = (segundo - primero).to_i
+    primero = self.initial_date
+    segundo = self.finish_date
+    resultado = (segundo - primero).to_i
+    resultado
+  end
 
-     return resultado
+  def count_down_day
+    primero = Date.today
+    segundo = self.finish_date
+    resultado = (segundo - primero).to_i
+    resultado
   end
 
 end

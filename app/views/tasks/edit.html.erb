@@ -1,6 +1,11 @@
-<h1>Editing Task</h1>
+<%= link_to root_path do %>
+    <i class="fas fa-arrow-circle-left fa-2x icon-back"></i>
+<% end %>
 
-<%= render 'form', task: @task %>
+<div class="card border-dark mb-3 mt-2">
+  <div class="card-header"><h1>Editing Task</h1></div>
+  <div class="card-body text-dark">
+    <%= render 'form_task', task: @task %>
+  </div>
+</div>
 
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>

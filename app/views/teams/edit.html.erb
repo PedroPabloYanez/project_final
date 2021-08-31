@@ -1,6 +1,11 @@
-<h1>Editing Team</h1>
+<%= link_to @team do %>
+    <i class="fas fa-arrow-circle-left fa-2x icon-back"></i>
+<% end %>
 
-<%= render 'form', team: @team %>
+<div class="card border-dark mb-3 mt-2">
+  <div class="card-header"><h1>Editing Team</h1></div>
+  <div class="card-body text-dark">
+    <%= render 'form_team', team: @team %>
+  </div>
+</div>
 
-<%= link_to 'Show', @team %> |
-<%= link_to 'Back', teams_path %>

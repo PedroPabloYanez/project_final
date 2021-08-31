@@ -1,3 +1,14 @@
+
+<div class="d-flex justify-content-between">
+  <%= link_to root_path do %>
+    <i class="fas fa-arrow-circle-left fa-2x icon-back"></i>
+  <% end %>
+  <%= link_to edit_team_path(@team), class:"nav-item mx-2 edit-team" do %>
+	  <i class="fas fa-edit fa-2x icon"></i>
+  <% end %>
+</div>
+<br>
+
 <p>
   <strong>Name:</strong>
   <%= @team.name %>
@@ -14,7 +25,11 @@
   </div>
   <%= submit_tag "Buscar", user_name: nil, class: "btn btn-primary btn-md" %>
 <% end %>
+
+
+
 <br>
+
 <hr>
 <h3>Team User</h3>
 <%= render 'add_member' %>
@@ -50,9 +65,6 @@
     <% end %>
   </tbody>
 
- 
-
 </table>
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', root_path %>
+

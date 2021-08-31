@@ -1,11 +1,12 @@
-<tr id="task_<%= task.id%>">
-
+<tr id="task_<%= task.id %>">
     <td><%= task.project.name %></td>
     <td><%= task.name %></td>
     <td><%= task.description %></td>
     <td><%= task.due_date %></td>
     <td><%= task.priority %></td>
     <td><span class="badge badge-<%= task.badge_color %> mb-3"><%= task.status %></span></td>
+    <td class="text-center"><%= task.count_down_day_task %></td>
+    <td class="text-center"><%= task.complete! %></td>
     <td class="text-center"><%= link_to  edit_task_path(task), remote: true, class:"nav-item mx-2" do %>
             <i class="fas fa-edit icon"></i>
 		<% end %></td>
