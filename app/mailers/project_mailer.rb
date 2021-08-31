@@ -7,7 +7,7 @@ class ProjectMailer < ApplicationMailer
   #
   def project_create(user)
     @user = user
-    #@project = project
+    @url = 'https://sheltered-waters-98252.herokuapp.com/'
     #@greeting = "Hi, how are you? #{@user.user_name}"
     
     mail(to: @user.email, subject: "Create Project")#@user.email // usuario puntual
