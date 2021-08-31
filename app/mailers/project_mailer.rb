@@ -14,8 +14,5 @@ class ProjectMailer < ApplicationMailer
     mail(to: @user.email, subject: "Create Project")#@user.email // usuario puntual
   end
 
-  def new_project(user, project)
-    
-    mail(to: user.email, subject: 'Se ha publicado un nuevo libro!')
-  end
+  
 end
