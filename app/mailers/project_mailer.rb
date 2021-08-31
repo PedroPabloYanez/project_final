@@ -9,6 +9,6 @@ class ProjectMailer < ApplicationMailer
     @user = user
     @greeting = "Hi, how are you? #{@user.user_name}"
     
-    mail(to: @user.email, subject: "This is a test")#@user.email // usuario puntual
+    mail(to: @user.email, subject: "Create Project")#@user.email // usuario puntual
   end
 end

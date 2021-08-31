@@ -7,7 +7,7 @@
     <td class="text-center"><%= link_to edit_project_path(project),remote: true, class:"nav-item mx-2" do %>
 			<i class="fas fa-edit icon"></i>
 		<% end %></td>
-    <td class="text-center"><%= link_to project, method: :delete, data: { confirm: "Delete #{project.name}?"}, class:'nav-item mx-5'  do%> 
+    <td class="text-center"><%= link_to project,remote: true, method: :delete, data: { confirm: "Delete #{project.name}?"}, class:'nav-item mx-5'  do%> 
 			<i class="fas fa-trash-alt icon-trush"></i>
 		<% end %></td>
 </tr>
