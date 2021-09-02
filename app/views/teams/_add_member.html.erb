@@ -7,18 +7,19 @@
   <table class="table table-bordered border-primary">
     <thead>
       <tr class="text-center">
-        <th>Id #</th>
         <th>User Photo</th>
         <th>User Name</th>
+        <th>Email</th>
         <th>User Delete</th>
       </tr>
     </thead>
     <tbody>
       <% @team.users.each do |item| %>
-        <tr>
-          <td><%= item.id %></td>
+        <tr class="text-center">
+          
           <td><img src="<%= item.user_photo  %>" width="60" height="60" class=" mx-auto d-block"></td>
           <td><strong><%= item.user_name %></strong></td>
+          <td><strong><%= item.email %></strong></td>
           <td class="d-flex justify-content-center" ><%= link_to delete_member_team_path(@team.id, item.id), method: :delete do %>
                                                         <i class="fas fa-user-times remove-user"></i>
                                                       <% end %></td>

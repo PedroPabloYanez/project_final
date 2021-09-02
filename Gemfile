@@ -90,10 +90,9 @@ gem "chartkick"
 #Votable
 gem 'acts_as_votable'
 
-
-gem 'time_difference'
-
-
-#
+#Sentry
 gem 'sentry-ruby', '~> 4.6', '>= 4.6.5'
 gem 'sentry-rails', '~> 4.6', '>= 4.6.5'
+
+#Faker Seed
+gem 'faker'

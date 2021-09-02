@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :team_users
-  has_many :teams, through: :team_users
+  has_many :team_users, dependent: :destroy
+  has_many :teams, through: :team_users, dependent: :destroy
   has_many :projects
   acts_as_voter
   # Include default devise modules. Others available are:

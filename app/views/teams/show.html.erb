@@ -39,7 +39,7 @@
 <table  class="table table-bordered">
   <thead>
     <tr  class="text-center">
-      <th>Id #</th>
+      
       <th>Photo</th>
       <th>Name</th>
       <th>Email</th>
@@ -49,8 +49,8 @@
 
   <tbody>
     <% @users.each do |u| %>
-      <tr>
-        <td><%= u.id %></td>
+      <tr class="text-center">
+        
         <% if u.image? %>
           <td><img src="<%= u.image %>" width="60" height="60" class="rounded mx-auto d-block"></td>
         <% else %>

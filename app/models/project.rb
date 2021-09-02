@@ -43,7 +43,7 @@ class Project < ApplicationRecord
   def total_day
     primero = self.initial_date
     segundo = self.finish_date
-    resultado = (segundo - primero).to_i
+    resultado = (segundo - primero + 1).to_i
     resultado
   end
 
