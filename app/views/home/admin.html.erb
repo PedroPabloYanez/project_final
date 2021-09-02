@@ -5,7 +5,7 @@
 <br>
 <table class="table table-bordered">
   <thead>
-    <tr>
+    <tr class="text-center table-primary">
       <th>Nombre</th>
       <th>Email</th>
       <th>Role</th>
@@ -18,9 +18,19 @@
       <tr>
         <td><%= user.user_name %></td>
         <td><%= user.email %></td>
-        <td><%= user.role%></td>
-        <td><%= link_to 'Change Status', update_status_path(user.id), class:"btn btn-success"%></td>
-        <td><%= link_to '', destroy_user_path(user.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm fas fa-trash-alt" %></td>
+        <td class="text-center"><%= user.role%></td>
+        <% if user.admin? %>
+          <td class="text-center"><%= link_to update_status_path(user.id) do%>
+            <i class="fas fa-toggle-on fa-2x icon-on"></i>
+          <% end %></td>
+        <% else %>
+          <td class="text-center"><%= link_to  update_status_path(user.id) do%>
+            <i class="fas fa-toggle-off fa-2x icon-off"></i>
+          <% end %></td>
+        <% end %>
+        <td class="text-center"><%= link_to destroy_user_path(user.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fas fa-minus-circle fa-2x icon-trash"></i>
+        <% end %></td>
       </tr>
     <% end %>
   </tbody>

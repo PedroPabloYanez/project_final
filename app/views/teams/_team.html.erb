@@ -1,7 +1,7 @@
 <tr id="team_<%= team.id%>">
     <td><%= team.name %></td>
     <td><%= team.color %></td>
-    <td><%= team.users.count %></td>
+    <td class="text-center"><%= team.users.count %></td>
     <td><ul><li type=”circle”><%= safe_join(team.users.map { |user| user.user_name }, ' - ') %></li></ul></td>
     <td class="text-center"><%= link_to edit_team_path(team), remote: true, class:"nav-item mx-2" do %>
             <i class="fas fa-edit icon"></i>
