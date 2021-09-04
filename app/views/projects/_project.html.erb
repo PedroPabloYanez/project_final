@@ -4,7 +4,8 @@
     <td><%= project.description %></td>
     <td><%= project.initial_date %></td>
     <td><%= project.finish_date %></td>
-    <td><%= project.count_down_day %></td>      
+    <td><%= project.count_down_day %></td>  
+    <td><span class="badge badge-<%= project.badge_color %> mb-3"><%= project.status %></span></td>    
     <td><%= link_to edit_project_path(project),remote: true, class:"nav-item mx-2" do %>
 			<i class="fas fa-edit icon"></i>
 		<% end %></td>

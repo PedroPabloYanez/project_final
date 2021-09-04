@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_24_183105) do
+ActiveRecord::Schema.define(version: 2021_09_03_170803) do
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_08_24_183105) do
     t.integer "cached_weighted_score", default: 0
     t.integer "cached_weighted_total", default: 0
     t.float "cached_weighted_average", default: 0.0
+    t.integer "status", default: 0
     t.index ["team_id"], name: "index_projects_on_team_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end

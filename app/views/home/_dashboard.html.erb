@@ -25,7 +25,7 @@
 						<div class="row">
 							<div class="col-8 title is-4 text-start">
 								<%= link_to project.name, project %>
-							<small>	<span class="badge badge-<%= project.badge_color %> mb-3"><%= project.status %></span></small>
+							<small>	<span class="badge badge-<%#= project.badge_color_dashboard %> mb-3"><%#= project.status_dashboard %></span></small>
 							
 								<small class="fs-6"><%= project.percent_complete %>% complete
 								(<%= project.total_complete %>/<%= project.total_tasks %> tasks)</small>

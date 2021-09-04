@@ -1,32 +1,106 @@
-<section class="hero is-link">
-	<div class="hero-body">
-	<%= link_to "Sign In", new_user_session_path, class:"button  is-rounded mx-2" %>
+<div class="lading-page">
+	<header class="hero">
+		<div class="containerR m-5 text-decoration-none justify-content-end ">
+			<%= link_to "Sign In", new_user_session_path, class:" text-decoration-none text-white rounded-pill btn-lg sign-in" %> 
+		</div>
+		<div class="textos-hero">
+			<h1>Welcome to Project Management</h1>
+			<p>Project - Task - Team - Dashboard</p>
+			<a href="#contacto">Contactame</a>
+		</div>
+		<div class="svg-hero" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C150.00,150.00 388.82,-32.28 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path></svg></div>
+	</header>
 
-		<div class="container has-text-centered">
-			<h1 class="title">
-				Welcome to Projekt
-			</h1>
-			<h2 class="subtitle">
-				A small project management app built with Ruby on Rails
-			</h2>
+	<section class="wave-contenedor website">
+		<%= image_tag '4380.jpg' %>
+		<div class="contenedor-textos-main">
+			<h2 class="titulo left">Sign Up Today</h2>
+			<p class="parrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum quo voluptatibus blanditiis quis odit rerum error laudantium quidem, est tenetur dolorum mollitia, molestiae quibusdam ipsam vero autem modi et nobis.</p>
+			<a><%= link_to 'Sign Up', new_user_registration_path, class:"text-decoration-none cta text-black" %></a>
 		</div>
-	</div>
-</section>
-<section class="section">
-	<div class="container">
-		<div class="columns">
-			<div class="column is-7">
-				<div class="content">
-					<h3 class="title is-3">Why is Projekt so awesome?</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum quo voluptatibus blanditiis quis odit rerum error laudantium quidem, est tenetur dolorum mollitia, molestiae quibusdam ipsam vero autem modi et nobis.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, dignissimos nihil, impedit distinctio perspiciatis, soluta repellat expedita libero vitae ea debitis quae excepturi aperiam dolorem veritatis possimus, quos molestias molestiae.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quaerat, tempore qui! Veniam sequi adipisci aliquam rerum, quas laborum expedita, illum repellendus sunt sit necessitatibus minus quo assumenda provident numquam.</p>
-				</div>
-			</div>
-			<div class="column is-4 is-offset1">
-				<h4 class="subtitle is-4">Sign Up Today</h4>
-				<%= link_to 'Sign Up', new_user_registration_path, class: 'button is-link is-outlined' %>
-			</div>
+	</section>
+
+	<section class="info">
+		<div class="contenedor">
+			<h2 class="titulo left">Juntos podemos apoyar</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 		</div>
-	</div>
-</section>
+	</section>
+
+	<section class="cards contenedor">
+		<h2 class="titulo">Our services</h2>	
+		<div class="content-cards">
+			<article class="tarjeta">
+				<i class="far fa-clone"></i>
+				<h3>Title Card</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				<a href="" class="cta">Learn more</a>
+			</article>
+			<article class="tarjeta">
+				<i class="fas fa-database"></i>
+				<h3>Title Card</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				<a href="" class="cta">Learn more</a>
+			</article>
+			<article class="tarjeta">
+				<i class="far fa-object-group"></i>
+				<h3>Title Card</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				<a href="" class="cta">Learn more</a>
+			</article>
+		</div>
+	</section>
+
+	<section class="galeria">
+		<div class="contenedor">
+			<h2 class="titulo">Manage your jobs</h2>
+			<article class="galeria-cont">
+				<%= image_tag 'vector.png' %>
+				<%= image_tag 'vector2.png' %>
+				<%= image_tag 'vector3.png' %>
+				<%= image_tag 'vector4.jpg' %>
+				<%= image_tag 'vector5.jpg' %>
+				<%= image_tag 'vector6.jpg' %>
+			</article>
+		</div>	
+	</section>
+
+	<section class="info-last">
+		<div class="contenedor last-section">
+			<div class="contenedor-textos-main">
+				<h2 class="titulo left">Management</h2>
+				<p class="parrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				<a href="" class="cta">Learn more</a>
+			</div>	
+			<%= image_tag 'team.jpg' %>
+		</div>
+		
+		<div class="svg-wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C150.00,150.00 388.82,-32.28 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #f5576c;"></path></svg></div>
+	</section>
+
+	<footer id="contacto">
+		<div class="contenedor">
+			<h2 class="titulo">Contact us</h2>
+			<form action="" class="form">
+				<input class="input m-2" type="text" name="" id="" placeholder="Nombre">
+				<input class="input m-2" type="email" name="" id="" placeholder="Email">
+				<textarea class="input m-2"rea name="" id="" cols="30" rows="10" placeholder="Mensaje"></textarea>
+				<input class="input m-2" type="submit" value="enviar">
+			</form>
+		</div>
+	</footer>
+	<div id="layoutAuthentication_footer">
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Pedro Yáñez 2021</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+</div>

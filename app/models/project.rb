@@ -5,27 +5,52 @@ class Project < ApplicationRecord
   belongs_to :team
   belongs_to :user
 
+  enum status: [:not_started, :in_progress, :complete]
+
+  # def badge_color_dashboard
+  #   case status_dashboard
+  #   when 'not-started'
+  #     'secondary'
+  #   when 'in-progress'
+  #     'info'
+  #   when 'complete'
+  #     'success'
+  #   end
+  # end
+
   def badge_color
     case status
-    when 'not-started'
+    when 'not_started'
       'secondary'
-    when 'in-progress'
+    when 'in_progress'
       'info'
     when 'complete'
       'success'
     end
   end
 
-  def status
-    return 'not-started' if tasks.none?
-    if tasks.all? { |task| task.complete? }
-      'complete'
-    elsif tasks.any? { |task| task.in_progress? || task.complete? }
-      'in-progress'
-    else
-      'not-started'
-    end
+  def complete?
+    status == 'complete'
   end
+    
+  def in_progress?
+    status == 'in-progress'
+  end
+    
+  def not_started?
+    status == 'not-started'
+  end
+
+  # def status_dashboard
+  #   return 'not-started' if tasks.none?
+  #   if tasks.all? { |task| task.complete? }
+  #     'complete'
+  #   elsif tasks.any? { |task| task.in_progress? || task.complete? }
+  #     'in-progress'
+  #   else
+  #     'not-started'
+  #   end
+  # end
 
   def percent_complete
     return 0 if tasks.none?
@@ -52,6 +77,18 @@ class Project < ApplicationRecord
     segundo = self.finish_date
     resultado = (segundo - primero).to_i
     resultado
+  end
+
+  def self.project_not_started_count
+    Project.where(status: "not_started").count
+  end
+  
+  def self.project_in_progress_count
+    Project.where(status: "in_progress").count
+  end
+  
+  def self.project_complete_count
+    Project.where(status: "complete").count
   end
 
 end

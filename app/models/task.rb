@@ -33,5 +33,17 @@ class Task < ApplicationRecord
     
     resultado
   end
+
+  def self.task_not_started_count
+    Task.where(status: "not_started").count
+  end
+  
+  def task_in_progress_count
+    self.where(status: "in_progress").count
+  end
+  
+  def self.task_complete_count
+    self.where(status: "complete").count
+  end
     
 end

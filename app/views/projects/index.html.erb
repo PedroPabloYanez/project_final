@@ -1,8 +1,8 @@
 <h1 class="h3 mb-2 text-gray-800">Projects</h1>
 <hr>
 <div>  
-  <%= link_to new_project_path, {remote: true, class: 'button is-small'} do %>
-		<span class="icon is-small has-text-link"><i class="fa fa-plus"></i></span>
+  <%= link_to new_project_path, {remote: true} do %>
+		<i class="fas fa-plus-square fa-2x icon-plus"></i>
 	<% end %>
 </div>
 <br>
@@ -16,6 +16,7 @@
             <th>Initial Date</th>
             <th>Finish Date</th>
             <th>Days to complete</th>
+            <th>Status</th>
             <th colspan="3"></th>
           </tr>
         </thead>
