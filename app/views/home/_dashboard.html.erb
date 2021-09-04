@@ -1,102 +1,105 @@
-<section class="section pt3">
-	<p class="title border-bottom pb-5 has-text-centered letter">Welcome <%= current_user.user_name %> 👋🏻</p>
-	<div class="columns">
-
-		<div class="column border-right ph4" >
-			<div class="level">
-				<div class="level-left">
-					<h3 class="subtitle is-5">My Projects <span class="tag is-rounded"><%= @projects.count %></span></h3>
-				</div>
-				<div class="level-right">
-					<p class="field" >
-						<%= link_to new_project_path, class: 'button is-small' do %>
-							<span class="icon is-small has-text-link"><i class="fa fa-plus"></i></span>
-						<% end %>
-						
-					</p>
-				</div>
-			</div>
-			<hr />
-
-			<% @projects.each do |project| %>
-
-				<div class="content border-bottom pb4">
-					<div class="container" id="NameProject">
-						<div class="row">
-							<div class="col-8 title is-4 text-start">
-								<%= link_to project.name, project %>
-							<small>	<span class="badge badge-<%#= project.badge_color_dashboard %> mb-3"><%#= project.status_dashboard %></span></small>
-							
-								<small class="fs-6"><%= project.percent_complete %>% complete
-								(<%= project.total_complete %>/<%= project.total_tasks %> tasks)</small>
-							</div>
-							<div class="col-4 text-end">
-								<%= link_to project, method: :delete, data: { confirm: "Are you sure you want to remove: #{project.name}?"}, class:'nav-item mx-5'  do%> 
-								<i class="fas fa-trash-alt  icon-trush fa-1x"></i>
-								<% end %>
-							</div>
-							
-						</div>
-						<p class="subtitle is-6"></p>
-							<%= link_to project.team.name, project.team %>
-						</p>
-						<div class="card text-decoration-underline mb-3" style="width: 18rem;">
-							<div class="card-body">
-								<p class="card-text">
-									<strong>Total días para trabajar: </strong><%= project.total_day %> días<br> 
-									<strong>Días por trabajar: </strong><%= project.count_down_day %> días 
-								</p>
-							</div>
-						</div>
-					
-					<p class="f6"><b>Description:</b> <%= project.description %></p>
-					<p class="f6 d-flex justify-content-end">Created by: <%= project.user&.user_name %></p>
-				</div>
-				<% if current_user %>
-    				<%= content_tag "div", id: "like-link-#{project.id}" do %>
-     					<%= render 'projects/like_link', project: project %>
-    				<% end %>
-  				<% end %>
-				</div>
-
-				
-
-			<% end %>
+<% if Payment.has_payment?(current_user).present? %>
+	<section class="section pt3">
+		<p class="title border-bottom pb-5 has-text-centered letter">Welcome <%= current_user.user_name %> 👋🏻</p>
+		<div class="columns">
 		
-		</div>
-		<div class="column border-right ph4">
-			<div class="level">
-				<div class="level-left">
-					<h3 class="subtitle is-5">My Teams <span class="tag is-rounded"><%= @teams.count %></span></h3>
-				</div>
-				<div class="level-right">
-					<p class="field">
-					
-						<%= link_to new_team_path, class: 'button is-small' do %>
-							<span class="icon is-small has-text-link"><i class="fa fa-plus"></i></span>
-						<% end %>
-					
-					</p>
-				</div>
-			</div>
-			<hr />
-			<% @teams.each do |team| %>
-				<div class="content border-bottom pb4">
-					<div class=" d-flex justify-content-between">
-						<div class="title is-4">
-							<%= link_to team.name, team %>
-						</div>
-						<%= link_to team, method: :delete, data: { confirm: "Are you sure you want to remove: #{team.name}?" }, class:"nav-item mx-5" do %>	
-							<i class="fas fa-trash-alt  icon-trush"></i>
-						<% end %>
+			<div class="column border-right ph4" >
+				<div class="level">
+					<div class="level-left">
+						<h3 class="subtitle is-5">My Projects <span class="tag is-rounded"><%= @projects.count %></span></h3>
 					</div>
-					<p class="subtitle is-6"><%= team.users.count %> Members</p>
-					<span class="f6"><%= safe_join(team.users.map { |user| user.user_name }, ', ') %></span>
-					
+					<div class="level-right">
+						<p class="field" >
+							<%= link_to new_project_path, class: 'button is-small' do %>
+								<span class="icon is-small has-text-link"><i class="fa fa-plus"></i></span>
+							<% end %>
+							
+						</p>
+					</div>
 				</div>
-			<% end %>
+				<hr />
 
+				<% @projects.each do |project| %>
+
+					<div class="content border-bottom pb4">
+						<div class="container" id="NameProject">
+							<div class="row">
+								<div class="col-8 title is-4 text-start">
+									<%= link_to project.name, project %>
+								<small>	<span class="badge badge-<%#= project.badge_color_dashboard %> mb-3"><%#= project.status_dashboard %></span></small>
+								
+									<small class="fs-6"><%= project.percent_complete %>% complete
+									(<%= project.total_complete %>/<%= project.total_tasks %> tasks)</small>
+								</div>
+								<div class="col-4 text-end">
+									<%= link_to project, method: :delete, data: { confirm: "Are you sure you want to remove: #{project.name}?"}, class:'nav-item mx-5'  do%> 
+									<i class="fas fa-trash-alt  icon-trush fa-1x"></i>
+									<% end %>
+								</div>
+								
+							</div>
+							<p class="subtitle is-6"></p>
+								<%= link_to project.team.name, project.team %>
+							</p>
+							<div class="card text-decoration-underline mb-3" style="width: 18rem;">
+								<div class="card-body">
+									<p class="card-text">
+										<strong>Total días para trabajar: </strong><%= project.total_day %> días<br> 
+										<strong>Días por trabajar: </strong><%= project.count_down_day %> días 
+									</p>
+								</div>
+							</div>
+						
+						<p class="f6"><b>Description:</b> <%= project.description %></p>
+						<p class="f6 d-flex justify-content-end">Created by: <%= project.user&.user_name %></p>
+					</div>
+					<% if current_user %>
+						<%= content_tag "div", id: "like-link-#{project.id}" do %>
+							<%= render 'projects/like_link', project: project %>
+						<% end %>
+					<% end %>
+					</div>
+
+					
+
+				<% end %>
+			
+			</div>
+			<div class="column border-right ph4">
+				<div class="level">
+					<div class="level-left">
+						<h3 class="subtitle is-5">My Teams <span class="tag is-rounded"><%= @teams.count %></span></h3>
+					</div>
+					<div class="level-right">
+						<p class="field">
+						
+							<%= link_to new_team_path, class: 'button is-small' do %>
+								<span class="icon is-small has-text-link"><i class="fa fa-plus"></i></span>
+							<% end %>
+						
+						</p>
+					</div>
+				</div>
+				<hr />
+				<% @teams.each do |team| %>
+					<div class="content border-bottom pb4">
+						<div class=" d-flex justify-content-between">
+							<div class="title is-4">
+								<%= link_to team.name, team %>
+							</div>
+							<%= link_to team, method: :delete, data: { confirm: "Are you sure you want to remove: #{team.name}?" }, class:"nav-item mx-5" do %>	
+								<i class="fas fa-trash-alt  icon-trush"></i>
+							<% end %>
+						</div>
+						<p class="subtitle is-6"><%= team.users.count %> Members</p>
+						<span class="f6"><%= safe_join(team.users.map { |user| user.user_name }, ', ') %></span>
+						
+					</div>
+				<% end %>
+
+			</div>
 		</div>
-	</div>
-</section>
-
+	</section>
+<% else %>
+	<%= link_to 'Paga con MercadoPago', mercado_pago_path %>
+<% end %>

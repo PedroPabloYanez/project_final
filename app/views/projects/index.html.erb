@@ -1,3 +1,4 @@
+<% if Payment.has_payment?(current_user).present? %>
 <h1 class="h3 mb-2 text-gray-800">Projects</h1>
 <hr>
 <div>  
@@ -32,5 +33,7 @@
 <br>
 
 <%= render 'modal_projects' %>
-
+<% else %>
+	<%= link_to 'Paga con MercadoPago', mercado_pago_path %>
+<% end %>
 

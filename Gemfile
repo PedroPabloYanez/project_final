@@ -96,3 +96,6 @@ gem 'sentry-rails', '~> 4.6', '>= 4.6.5'
 
 #Faker Seed
 gem 'faker'
+
+#Mercado Pago
+gem 'mercadopago-sdk', '~> 2.0', '>= 2.0.2'

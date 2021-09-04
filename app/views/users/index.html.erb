@@ -1,3 +1,4 @@
+<% if Payment.has_payment?(current_user).present? %>
 <h1 class="text-center">Dashboard</h1>
 
 
@@ -77,3 +78,6 @@
             <%= pie_chart Task.joins(:project).group('projects.name').count, prefix: "Cantidad Tareas: " %>
         </div>  
 </div>
+<% else %>
+	<%= link_to 'Paga con MercadoPago', mercado_pago_path %>
+<% end %>
