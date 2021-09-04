@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :payments
   devise_for :users, controllers: {
     sessions: 'users/sessions', omniauth_callbacks: 'users/omniauth_callbacks'
   }
@@ -27,9 +28,11 @@ Rails.application.routes.draw do
     end
   end
   
-  #resource :cart, only: [:show, :update] #do
-    #get 'carts/:id/delete_item', to: 'carts#delete_item', as: 'delete_item'
-  #end
+  #Mercado Pago
+  get 'mercado-pago', to: 'payments#mercado_pago', as: 'mercado-pago'
+  get 'payments_success', to: 'payments#pago_exitoso', as: 'pago-exitoso'
+
+
 
   root "home#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

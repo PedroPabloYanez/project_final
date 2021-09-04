@@ -18,12 +18,11 @@
    
     <!-- Custom styles for this template-->
     <link href="sb-admin-2.min" >
-
-
     
   </head>
 
   <body>
+  
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
@@ -35,9 +34,7 @@
       <%= render '/partials/navbar' %>
     <% else %>
       <%= yield %>
-     
-    <% end %>
+    <% end %> 
 
- 
   </body>
 </html>
