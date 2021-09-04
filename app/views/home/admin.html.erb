@@ -18,7 +18,7 @@
       <tr>
         <td><%= user.user_name %></td>
         <td><%= user.email %></td>
-        <td class="text-center"><%= user.role%></td>
+        <td class="text-center"><%= user.role %></td>
         <% if user.admin? %>
           <td class="text-center"><%= link_to update_status_path(user.id) do%>
             <i class="fas fa-toggle-on fa-2x icon-on"></i>
