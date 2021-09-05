@@ -19,7 +19,18 @@
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i');
 
-
+.MercadoPago{
+    background: linear-gradient(180deg, #35505ede 0%, #306485 49%, #69f0b7 50%, #999cbb 100%);
+    background-size: 1px 100px;
+    transition: all .3s;
+    color: #fff;
+    
+}
+.MercadoPago:hover{
+    background-position: 0 -50px;
+    transition: all .3s;
+    color: #000;
+}
 .f6 { font-size: .875rem; }
 
 .icon { color: #515a5a ; }
@@ -107,6 +118,16 @@
 .sign-in:hover{
     background-position: 0 -50px;
     transition: all .3s;
+}
+
+.sing-up{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    color: #2d67a5 !important;
+    width: 250px;
+}
+.sing-up:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    color: #fff !important;
 }
 .hero{ 
     background-image: linear-gradient(120deg, rgba(241, 147, 251, 0.699) 0%, rgba(85, 27, 35, 0.692) 100%), url('project-work.jpg');

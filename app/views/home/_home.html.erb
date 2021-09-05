@@ -15,8 +15,23 @@
 		<%= image_tag '4380.jpg' %>
 		<div class="contenedor-textos-main">
 			<h2 class="titulo left">Sign Up Today</h2>
-			<p class="parrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum quo voluptatibus blanditiis quis odit rerum error laudantium quidem, est tenetur dolorum mollitia, molestiae quibusdam ipsam vero autem modi et nobis.</p>
-			<a><%= link_to 'Sign Up', new_user_registration_path, class:"text-decoration-none cta text-black" %></a>
+			<p class="parrafo">
+				<ol>
+					<li>Registrarse en Sign Up.</li>
+					<li>Seleccionar botón de Mercago Pago.</li>
+					<li>Seleccionar tarjeta de credito.</li>
+					<li>Ingresar los siguientes datos de TC: </li>
+					
+						<ul>
+							<li><strong>Número:</strong> 5416 7526 0258 2580</li>
+							<li><strong>Código de seguridad:</strong> 123</li>
+							<li><strong>Fecha de vencimiento:</strong> 11/25</li>
+						</ul>
+					<li>Ingresar Rut de prueba: 11.111.111-1 </li>	
+					<li>Disfrutar de la App. </li>
+				</ol>
+			</p>
+			<a><%= link_to 'Sign Up', new_user_registration_path, class:"mt-2 text-decoration-none cta sing-up text-center fs-4" %></a>
 			
 		</div>
 	</section>

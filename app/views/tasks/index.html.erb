@@ -33,6 +33,9 @@
 <%= render 'modal_tasks' %>
 
 <% else %>
-	<%= link_to 'Paga con MercadoPago', mercado_pago_path %>
+	<h1 class="text-center">Pagar para entrar en APP</h1>
+	<br>
+	<h4 class="text-center">Haz seguimiento a tus proyectos</h4>
+	<%= link_to 'Paga con MercadoPago', mercado_pago_path, class:"position-absolute top-50 start-50 translate-middle-x-y text-decoration-none  rounded-pill btn-lg MercadoPago" %>
 <% end %>
 

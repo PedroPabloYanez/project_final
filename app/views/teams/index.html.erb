@@ -1,34 +1,37 @@
 <% if Payment.has_payment?(current_user).present? %>
-<h1 class="h3 mb-2 text-gray-800">Teams</h1>
-<hr>
-<div>  
-  <%= link_to new_team_path, {remote: true} do %>
-		<i class="fas fa-plus-square fa-2x icon-plus"></i>
-	<% end %>
-</div>
-<br />
-
-<table class="table table-bordered">
-  <thead>
-    <tr class="text-center table-primary">
-      <th>Name</th>
-      <th>Color</th>
-      <th>Numero de integrantes</th>
-      <th>integrantes</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teams.each do |team| %>
-      <%= render 'teams/team', team: team %>
+  <h1 class="h3 mb-2 text-gray-800">Teams</h1>
+  <hr>
+  <div>  
+    <%= link_to new_team_path, {remote: true} do %>
+      <i class="fas fa-plus-square fa-2x icon-plus"></i>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  <br />
 
-<br>
+  <table class="table table-bordered">
+    <thead>
+      <tr class="text-center table-primary">
+        <th>Name</th>
+        <th>Color</th>
+        <th>Numero de integrantes</th>
+        <th>integrantes</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
 
-<%= render 'modal_teams' %>
+    <tbody>
+      <% @teams.each do |team| %>
+        <%= render 'teams/team', team: team %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= render 'modal_teams' %>
 <% else %>
-	<%= link_to 'Paga con MercadoPago', mercado_pago_path %>
+	<h1 class="text-center ">Pagar para entrar en APP</h1>
+	<br>
+	<h4 class="text-center">Haz seguimiento a tus proyectos</h4>
+	<%= link_to 'Paga con MercadoPago', mercado_pago_path, class:"position-absolute top-50 start-50 translate-middle-x-y text-decoration-none  rounded-pill btn-lg MercadoPago" %>
 <% end %>
