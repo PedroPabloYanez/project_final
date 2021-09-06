@@ -5,6 +5,9 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
     @tasks = Task.all
+    if params[:name].present?
+      @tasks = @tasks.where("name LIKE ?", "%#{params[:name]}%")
+    end 
   end
 
   # GET /tasks/1 or /tasks/1.json

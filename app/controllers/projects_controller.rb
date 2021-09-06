@@ -7,6 +7,9 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
     @project = Project.new
+    if params[:name].present?
+      @projects = @projects.where("name LIKE ?", "%#{params[:name]}%")
+    end  
   end
 
   # GET /projects/1 or /projects/1.json

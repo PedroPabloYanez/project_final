@@ -8,6 +8,14 @@
 </div>
 <br />
 
+<%= form_tag tasks_path, method: :get do %>
+  <div class="form-group">
+    <%= text_field_tag :name, params[:name], placeholder: "Search Task..." %>
+  </div>
+  <%= submit_tag "Buscar", name: nil, class: "btn btn-primary btn-md" %>
+<% end %>
+
+<br>
 <table class="table table-bordered">
   <thead>
     <tr class="text-center table-primary">

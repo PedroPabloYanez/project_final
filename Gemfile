@@ -99,3 +99,6 @@ gem 'faker'
 
 #Mercado Pago
 gem 'mercadopago-sdk', '~> 2.0', '>= 2.0.2'
+
+#kaminari
+gem 'kaminari', '~> 1.2', '>= 1.2.1'

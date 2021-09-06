@@ -35,7 +35,11 @@
 <%= render 'add_member' %>
 <hr>
 <h3>All Users</h3>
-
+<br>
+<%= paginate User.order(:user_name).page(params[:page]).per(5) %>
+<%= link_to_prev_page User.page(params[:page]), 'Previous Page' %>
+<%= link_to_next_page User.page(params[:page]), 'Next Page' %>
+<br>
 <table  class="table table-bordered">
   <thead>
     <tr  class="text-center">
@@ -66,5 +70,7 @@
   </tbody>
 
 </table>
+
+
 
 

@@ -6,15 +6,18 @@ class TeamsController < ApplicationController
   # GET /teams or /teams.json
   def index
     @teams = Team.all
-    
+    if params[:name].present?
+      @teams = @teams.where("name LIKE ?", "%#{params[:name]}%")
+    end 
   end
   
   # GET /teams/1 or /teams/1.json
   def show
     @users = User.all
+    
     if params[:user_name].present?
       @users = @users.where("user_name LIKE ?", "%#{params[:user_name]}%")
-    end
+    end 
     
   end
 
@@ -93,8 +96,8 @@ class TeamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def team_params
-      params.require(:team).permit(:name, :color)
-    end
+      params.require(:team).permit(:name, :color, :user_name)
+    end 
 
     
       
