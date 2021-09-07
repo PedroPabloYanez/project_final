@@ -1,5 +1,5 @@
 class Team < ApplicationRecord
-    paginates_per 5
+    #paginates_per 5
     has_many :projects
 	has_many :team_users, dependent: :destroy
     has_many :users, through: :team_users, dependent: :destroy

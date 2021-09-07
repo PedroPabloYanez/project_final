@@ -36,15 +36,15 @@
 <hr>
 <h3>All Users</h3>
 <br>
-<%= paginate User.order(:user_name).page(params[:page]).per(5) %>
-<%= link_to_prev_page User.page(params[:page]), 'Previous Page' %>
-<%= link_to_next_page User.page(params[:page]), 'Next Page' %>
+
+
+
 <br>
 <table  class="table table-bordered">
   <thead>
     <tr  class="text-center">
-      
-      <th>Photo</th>
+      <th>Avatar</th>
+      <%# <th>Photo</th> %>
       <th>Name</th>
       <th>Email</th>
       <th>Add Members Team</th>
@@ -55,11 +55,12 @@
     <% @users.each do |u| %>
       <tr class="text-center">
         
-        <% if u.image? %>
-          <td><img src="<%= u.image %>" width="60" height="60" class="rounded mx-auto d-block"></td>
-        <% else %>
-          <td><img src="<%= u.user_photo %>" width="60" height="60" class="rounded mx-auto d-block"></td>
+        <td><%#= u.image_tag(avatar.last.variant(resize: "60x60").processed if u.avatar.attached?) %></td>
+         <% if u.avatar.attached? %>
+        <td><%= image_tag u.avatar.variant(resize: "60x60" ), :class => 'rounded mx-auto d-block'%></td>
         <% end %>
+          <%# <td><img src="<%= u.user_photo %>" width="60" height="60" class="rounded mx-auto d-block"></td> %>
+       
         <td><%= u.user_name %></td>
         <td><%= u.email %></td>
         <td class="d-flex justify-content-center "><%= link_to add_member_team_path(@team.id, u.id) do%>
@@ -70,7 +71,5 @@
   </tbody>
 
 </table>
-
-
 
 

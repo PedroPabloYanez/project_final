@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   }
   #Ruta para ver dashboard y resumen
   get 'users', to: 'users#index', as: :index_user
+  get 'dashboard_user', to: 'users#dashboard_user', as: :dashboard_user
   
   get 'users/:id', to: 'users#update_status', as: :update_status
   delete '/users/:id', to: 'users#destroy', as: :destroy_user

@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_team, only: %i[ show edit update destroy]
   
 
@@ -14,11 +14,10 @@ class TeamsController < ApplicationController
   # GET /teams/1 or /teams/1.json
   def show
     @users = User.all
-    
     if params[:user_name].present?
       @users = @users.where("user_name LIKE ?", "%#{params[:user_name]}%")
     end 
-    
+
   end
 
   def add_member

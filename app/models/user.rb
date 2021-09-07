@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  
+  has_one_attached :avatar
   has_many :team_users, dependent: :destroy
   has_many :teams, through: :team_users, dependent: :destroy
   has_many :projects
@@ -13,6 +13,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   enum role: %i[standard admin]
+  
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

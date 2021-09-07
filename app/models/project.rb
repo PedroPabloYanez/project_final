@@ -1,5 +1,7 @@
 class Project < ApplicationRecord
   validates :name, presence: true
+  validates :initial_date, presence: true
+  validates :finish_date, presence: true
   acts_as_votable
   has_many :tasks
   belongs_to :team

@@ -1,0 +1,102 @@
+<% if Payment.has_payment?(current_user).present? %>
+    <h1 class="text-center">Dashboard</h1>
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3 d-flex justify-content-between">
+                            <i class="fa fa-check-circle fa-2x"></i>
+                            <div>
+                                <h1><%= Project.project_complete_count%></h1>
+                            </div>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div>
+                                Proyectos terminados
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="panel panel-yellow">
+                <div class="yellow">
+                    <div class="row ">
+                        <div class="col-xs-3 d-flex justify-content-between">
+                            <i class="fa fa-exclamation-circle fa-2x"></i>
+                            <div>
+                                <h1><%= Project.project_in_progress_count%></h1>
+                            </div>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div>
+                                Proyectos pendientes
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="panel panel-red">
+                <div class="red">
+                    <div class="row">
+                        <div class="col-xs-3 d-flex justify-content-between">
+                            <i class="fa fa-info-circle fa-2x"></i>
+                            <div>
+                                <h1><%= Project.project_not_started_count%></h1>
+                            </div>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            
+                            <div>
+                                Proyectos sin empezar
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="h3 mb-2 text-gray-800">Charts</h1>
+    <div class="row">
+        <div class="col-6">
+            <div class="card border border-4 mb-3">
+                <strong><h4><div class="card-header justify-content-center">Proyect Status</div></h4></strong>
+                <div class="card-body">
+                    <%= bar_chart Project.group(:status).count, colors: [["#e74c3c", "#f0ad4e", "#5cb85c"]]%>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card border border-4 mb-3">
+                <strong><h4><div class="card-header justify-content-center">Task Status</div></h4></strong>
+                <div class="card-body">
+                    <%= bar_chart Task.group(:status).count, colors: [["#e74c3c", "#f0ad4e", "#5cb85c"]]%>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card border-dark mb-3">
+        <strong><h4><div class="card-header justify-content-center">Usuarios por Team</div></h4></strong>
+            <div class="card-body">
+                <%= column_chart Team.includes(:users).collect{|team| [team.name, team.users.size]}, prefix: "Cantidad User: "%>
+            </div>
+    </div>
+
+    <div class="card border-dark mb-3">
+        <strong><h4><div class="card-header justify-content-center">Tarea en cada Proyecto</div></h4></strong>
+            <div class="card-body">
+                <%= pie_chart Task.joins(:project).group('projects.name').count, prefix: "Cantidad Tareas: ", donut: true %>
+            </div>  
+    </div>
+<% else %>
+	<h1 class="text-center">Pagar para entrar en APP</h1>
+	<br>
+	<h4 class="text-center">Haz seguimiento a tus proyectos</h4>
+	<%= link_to 'Paga con MercadoPago', mercado_pago_path, class:"position-absolute top-50 start-50 translate-middle-x-y text-decoration-none  rounded-pill btn-lg MercadoPago" %>
+<% end %>

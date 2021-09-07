@@ -16,7 +16,7 @@ TeamUser.destroy_all
     User.create(
         user_name: Faker::Sports::Football.player, 
         email: Faker::Internet.email,
-        user_photo: Faker::Avatar.image
+        avatar: Faker::Avatar.image
     )
 end
 

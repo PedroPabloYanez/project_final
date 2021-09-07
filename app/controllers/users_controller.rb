@@ -1,5 +1,14 @@
 class UsersController < ApplicationController
+    before_action :authenticate_user!
     def index
+        #@users = User.all
+        @users = User.order(:user_name).page(params[:page]).per(10)
+        if params[:user_name].present?
+            @users = @users.where("user_name LIKE ?", "%#{params[:user_name]}%")
+          end 
+    end
+
+    def dashboard_user   
     end
    
     def destroy
@@ -19,4 +28,10 @@ class UsersController < ApplicationController
         flash[:success] = "status User is updated"
         redirect_to admin_path
     end
+
+    private
+    # Use callbacks to share common setup or constraints between actions.
+    def user_params
+        params.require(:user).permit(:avatar)
+      end 
 end
