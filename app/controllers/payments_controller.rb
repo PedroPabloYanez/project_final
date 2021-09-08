@@ -38,7 +38,7 @@ class PaymentsController < ApplicationController
         }
       ],
       back_urls: {
-        success: 'http://localhost:3000/payments_success',
+        success: payments_success_url,
         failure: 'http://localhost:3000/payments',
         pending: 'http://localhost:3000/payments'
       },
