@@ -16,8 +16,9 @@
     <tbody>
       <% @team.users.each do |item| %>
         <tr class="text-center">
-          
-          <td><img src="<%= item.user_photo  %>" width="60" height="60" class=" mx-auto d-block"></td>
+          <% if item.avatar.attached? %>
+            <td><%= image_tag item.avatar.variant(resize: "60x60" ), :class => 'rounded mx-auto d-block'%></td>
+          <% end %>
           <td><strong><%= item.user_name %></strong></td>
           <td><strong><%= item.email %></strong></td>
           <td class="d-flex justify-content-center" ><%= link_to delete_member_team_path(@team.id, item.id), method: :delete do %>

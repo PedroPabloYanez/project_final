@@ -62,7 +62,9 @@
   --bs-body-color: #212529;
   --bs-body-bg: #fff;
 }
-
+.text-copyright{
+  color:white;
+}
 *,
 *::before,
 *::after {
@@ -11305,6 +11307,7 @@ body {
 }
 #layoutAuthentication #layoutAuthentication_footer {
   min-width: 0;
+  color: red;
 }
 
 #layoutSidenav {

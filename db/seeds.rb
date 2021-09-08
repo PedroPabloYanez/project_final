@@ -13,11 +13,13 @@ Team.destroy_all
 TeamUser.destroy_all
 
 20.times do
-    User.create(
+    u = User.create(
         user_name: Faker::Sports::Football.player, 
         email: Faker::Internet.email,
-        avatar: Faker::Avatar.image
+        
     )
+
+    u.avatar.attach(io: File.open('public/avatar.jpg'), filename: 'avatar.jpg')
 end
 
 15.times do
