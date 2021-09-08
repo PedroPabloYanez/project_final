@@ -10,15 +10,10 @@
 
    
     <div class="item form-group">
-      <%= f.label :avatar, 'Image:' %>
-    <div class="input-group">
-      <%= f.file_field :avatar, direct_upload: true %>
-    </div>
-    </div>
-
-
-    <div class="input-group mb-3 ">
-        <%= f.text_field :user_photo, autocomplete: "Photo", class:"form-control", placeholder:"Link Photo" %>
+      <%= f.label :avatar, 'Image User:' %>
+        <div class="input-group">
+          <%= f.file_field :avatar, direct_upload: true, class:"form-control"%>
+        </div>
     </div>
 
     <div class="input-group mb-3">
