@@ -1,25 +1,51 @@
-# README
+# App Project Management
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In this application you will be able to organize projects, work teams and users. Keeping track of all the proposed tasks.
 
-Things you may want to cover:
+## beginning 🚀
 
-* Ruby version
+Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
 
-* System dependencies
 
-* Configuration
+### Pre-requisitos 📋
 
-* Database creation
+- Ruby on Rails 5 -- Ruby 2.7.4
 
-* Database initialization
 
-* How to run the test suite
+### Setup 🔧
 
-* Services (job queues, cache servers, search engines, etc.)
+- bundle install
+- rails db:migrate
+- rails db:seed
+- add yarn add chartkick
+- add yarn add fontawesome
 
-* Deployment instructions
 
-* ...
+
+## Despliegue 📦
+
+_this web application is in heroku_
+
+
+- heroku login
+- heroku create
+- git push heroku 'branch'
+- heroku run rails db:migrate
+- heroku run rails db:seed
+- herku open
+
+
+## Construido con 🛠️
+
+_Menciona las herramientas que utilizaste para crear tu proyecto_
+
+* [Ruby on Rails](http://rubyonrails.org/) - El framework web used
+* [Yarn](https://yarnpkg.com/) - Manejador de dependencias
+* [Heroku](https://heroku.com/apps) - Deployment
+
+
+## Authors ✒️
+
+* **Pedro Yáñez** - *developer* - [PedroPabloYanez ](https://gist.github.com/PedroPabloYanez)
+
 

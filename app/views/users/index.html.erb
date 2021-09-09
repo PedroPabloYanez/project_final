@@ -23,7 +23,9 @@
     <% @users.each do |u| %>
       <tr class="text-center">
        
+        <% if u.avatar.attached? %>
           <td><%= image_tag u.avatar.variant(resize: "60x60" ), :class => 'rounded mx-auto d-block'%></td>
+        <% end %>
         
         
         <td><%= u.user_name %></td>
