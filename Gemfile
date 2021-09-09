@@ -104,7 +104,7 @@ gem 'mercadopago-sdk', '~> 2.0', '>= 2.0.2'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
 
 #Amazon aws
-gem 'aws-sdk-s3'
+gem 'aws-sdk-s3', require: false
 
 gem "image_processing"
 gem "mini_magick"
