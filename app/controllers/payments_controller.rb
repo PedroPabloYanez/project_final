@@ -39,8 +39,8 @@ class PaymentsController < ApplicationController
       ],
       back_urls: {
         success: 'https://sheltered-waters-98252.herokuapp.com//payments_success',
-        failure: 'https://sheltered-waters-98252.herokuapp.com/',
-        pending: 'https://sheltered-waters-98252.herokuapp.com/'
+        failure: 'https://sheltered-waters-98252.herokuapp.com/payments',
+        pending: 'https://sheltered-waters-98252.herokuapp.com/payments'
       },
       auto_return: 'approved'
       # ...
