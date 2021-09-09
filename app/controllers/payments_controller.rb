@@ -38,7 +38,7 @@ class PaymentsController < ApplicationController
         }
       ],
       back_urls: {
-        success: payments_success_url,
+        success: 'https://sheltered-waters-98252.herokuapp.com/payments_success',
         failure: 'http://localhost:3000/payments',
         pending: 'http://localhost:3000/payments'
       },
