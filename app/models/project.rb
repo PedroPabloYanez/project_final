@@ -9,17 +9,6 @@ class Project < ApplicationRecord
 
   enum status: [:not_started, :in_progress, :complete]
 
-  # def badge_color_dashboard
-  #   case status_dashboard
-  #   when 'not-started'
-  #     'secondary'
-  #   when 'in-progress'
-  #     'info'
-  #   when 'complete'
-  #     'success'
-  #   end
-  # end
-
   def badge_color
     case status
     when 'not_started'
@@ -42,17 +31,6 @@ class Project < ApplicationRecord
   def not_started?
     status == 'not-started'
   end
-
-  # def status_dashboard
-  #   return 'not-started' if tasks.none?
-  #   if tasks.all? { |task| task.complete? }
-  #     'complete'
-  #   elsif tasks.any? { |task| task.in_progress? || task.complete? }
-  #     'in-progress'
-  #   else
-  #     'not-started'
-  #   end
-  # end
 
   def percent_complete
     return 0 if tasks.none?
@@ -78,6 +56,9 @@ class Project < ApplicationRecord
     primero = Date.today
     segundo = self.finish_date
     resultado = (segundo - primero).to_i
+    if status == 'complete'
+      resultado = 0
+    end
     resultado
   end
 

@@ -21,7 +21,6 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 - add yarn add fontawesome
 
 
-
 ## Despliegue 📦
 
 _this web application is in heroku_

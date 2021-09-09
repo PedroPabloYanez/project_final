@@ -3,6 +3,8 @@ class Task < ApplicationRecord
   
   enum status: [:not_started, :in_progress, :complete]
 
+  validates :due_date, presence: true
+
   def badge_color
     case status
     when 'not_started'
@@ -11,6 +13,17 @@ class Task < ApplicationRecord
       'info'
     when 'complete'
       'success'
+    end
+  end
+
+  def badge_color_priority
+    case priority
+    when 'Alta'
+      'danger'
+    when 'Media'
+      'warning'
+    when 'Baja'
+      'dark'
     end
   end
       
@@ -30,7 +43,9 @@ class Task < ApplicationRecord
     primero = Date.today
     segundo = self.due_date
     resultado = (segundo - primero).to_i
-    
+    if status == 'complete'
+      resultado = 0
+    end
     resultado
   end
 
