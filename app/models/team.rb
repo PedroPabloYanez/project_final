@@ -7,9 +7,6 @@ class Team < ApplicationRecord
 
     def add_user(user_id)
         user= User.find(user_id)
-        #if user
-            #creamos la orden con los datos del productos según queramos mostar
-            team_users.create(user_id: user.id)
-        #end
+        team_users.create(user_id: user.id)
     end
 end

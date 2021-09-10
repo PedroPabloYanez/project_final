@@ -11,11 +11,12 @@ class UsersController < ApplicationController
     def dashboard_user   
     end
    
-    def destroy
-        user = User.find(params[:id])
-        user.destroy
-        redirect_to admin_path, notice: 'User deleted.'
-    end
+    # def destroy
+    #     @user = User.find(params[:id])
+    #     @user.destroy
+    #     redirect_to admin_path, notice: 'User was deleted.'
+    # end
+
     
     def update_status
         user = User.find(params[:id])
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
             user.role = 1
         end
         user.save
-        redirect_to admin_path, notice: 'User in Admin.'
+        redirect_to admin_path, notice: 'User is Admin.'
     end
 
     private

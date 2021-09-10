@@ -32,9 +32,9 @@ class TeamsController < ApplicationController
   end
 
   def delete_member
-    team = Team.find(params[:id])
-    user = User.find(params[:member_id]) 
-    team.users.destroy(user)
+    t = Team.find(params[:id])
+    u = User.find(params[:member_id]) 
+    t.users.destroy(u)
     redirect_to team_path, notice: "El usuario ha sido Eliminado"
   end
 

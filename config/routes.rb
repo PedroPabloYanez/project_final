@@ -9,16 +9,18 @@ Rails.application.routes.draw do
   get 'dashboard_user', to: 'users#dashboard_user', as: :dashboard_user
   
   get 'users/:id', to: 'users#update_status', as: :update_status
-  delete '/users/:id', to: 'users#destroy', as: :destroy_user
+  delete 'users/:id', to: 'users#destroy', as: "destroy_user"
 
-  
+  #Admin
   get 'admin', to: 'home#admin'
+  delete "home/:id", to: "home#destroy_user_admin", as: "destroy_user_admin"
+  
   resources :tasks
 
   resources :teams do 
     member do
       get "add_member/:user_id", to:"teams#add_member", as: "add_member"
-      delete 'delete_member/:member_id', to: 'teams#delete_member', as: 'delete_member'
+      delete 'delete_member/:member_id/', to: 'teams#delete_member', as: 'delete_member'
     end
   end
 
