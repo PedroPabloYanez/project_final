@@ -4,8 +4,6 @@ In this application you will be able to organize projects, work teams and users.
 
 ## beginning 🚀
 
-Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
-
 
 ### Pre-requisitos 📋
 
@@ -23,15 +21,14 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
 ## Despliegue 📦
 
-_this web application is in heroku_
-
-
 - heroku login
 - heroku create
 - git push heroku 'branch'
 - heroku run rails db:migrate
 - heroku run rails db:seed
 - herku open
+
+- available https://sheltered-waters-98252.herokuapp.com/
 
 
 ## Construido con 🛠️
