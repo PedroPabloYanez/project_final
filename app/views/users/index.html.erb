@@ -1,4 +1,4 @@
-<h3 class="h3 mb-2 text-gray-800">All Users</h3>
+<h3 class="subtitle is-2">All Users<span class="tag is-rounded"><%= @users.all.count %></span></h3>
 <hr>
 <br>
 <%= form_tag index_user_path, method: :get do %>
