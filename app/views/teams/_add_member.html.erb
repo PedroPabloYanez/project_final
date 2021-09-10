@@ -21,7 +21,7 @@
           <% end %>
           <td><strong><%= item.user_name %></strong></td>
           <td><strong><%= item.email %></strong></td>
-          <td class="d-flex justify-content-center" ><%= link_to delete_member_team_path(item.id), method: :delete do %>
+          <td class="d-flex justify-content-center" ><%= link_to delete_member_team_path(@team.id, item.id), method: :delete do %>
                                                         <i class="fas fa-user-times remove-user"></i>
                                                       <% end %></td>
         </tr>
