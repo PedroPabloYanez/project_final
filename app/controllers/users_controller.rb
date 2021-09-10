@@ -12,9 +12,12 @@ class UsersController < ApplicationController
     end
    
     def destroy
-        User.find(params[:id]).destroy
-        flash[:success] = "User destroyed."
-        redirect_to admin_path
+        if current_user.has_role? :admin
+            @user = User.find(params[:id])
+            @user.destroy
+            flash[:success] = "User destroyed."
+            redirect_to admin_path
+        end
     end
     
     def update_status
