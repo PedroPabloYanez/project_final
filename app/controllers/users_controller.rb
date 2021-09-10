@@ -25,8 +25,7 @@ class UsersController < ApplicationController
             user.role = 1
         end
         user.save
-        flash[:success] = "status User is updated"
-        redirect_to admin_path
+        redirect_to admin_path, notice: 'User in Admin.'
     end
 
     private
