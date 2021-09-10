@@ -12,12 +12,9 @@ class UsersController < ApplicationController
     end
    
     def destroy
-        
-            @user = User.find(params[:id])
-            @user.destroy
-            flash[:success] = "User destroyed."
-            redirect_to admin_path
-        
+        user = User.find(params[:id])
+        user.destroy
+        redirect_to admin_path, notice: 'User deleted.'
     end
     
     def update_status

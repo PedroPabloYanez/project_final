@@ -28,7 +28,7 @@
             <i class="fas fa-toggle-off fa-2x icon-off"></i>
           <% end %></td>
         <% end %>
-        <td class="text-center"><%= link_to destroy_user_path(user), method: :delete, data: { confirm: "Are you sure?#{user.user_name}?" } do %>
+        <td class="text-center"><%= link_to destroy_user_path(user.id), method: :delete, data: { confirm: "Really delete this user #{user.user_name}?" } do %>
           <i class="fas fa-minus-circle fa-2x icon-trash"></i>
         <% end %></td>
       </tr>
