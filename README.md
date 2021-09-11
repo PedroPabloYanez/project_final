@@ -28,7 +28,8 @@ In this application you will be able to organize projects, work teams and users.
 - heroku run rails db:seed
 - herku open
 
-- available https://sheltered-waters-98252.herokuapp.com/
+- heroku: https://sheltered-waters-98252.herokuapp.com/
+- terllo: https://trello.com/b/3Dw7xiC6/proyecto-app-management
 
 
 ## Construido con 🛠️
